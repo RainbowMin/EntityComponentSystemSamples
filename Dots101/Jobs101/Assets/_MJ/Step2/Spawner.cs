@@ -24,9 +24,12 @@ namespace MJ.Step2
             for (int i = 0; i < NumSeekers; i++)
             {
                 GameObject go = GameObject.Instantiate(SeekerPrefab);
-                //Seeker seeker = go.GetComponent<Seeker>();
+
+                //seek通过自己的Update来在一个随机方向进行直线匀速运动
+                var seeker = go.GetComponent<Tutorials.Jobs.Step1.Seeker>();
                 Vector2 dir = Random.insideUnitCircle;
-                //seeker.Direction = new Vector3(dir.x, 0, dir.y);
+                seeker.Direction = new Vector3(dir.x, 0, dir.y);
+
                 SeekerTransforms[i] = go.transform; // 保存搜索者的Transform
                 go.transform.localPosition = new Vector3(
                     Random.Range(0, Bounds.x), 0, Random.Range(0, Bounds.y));
@@ -36,9 +39,12 @@ namespace MJ.Step2
             for (int i = 0; i < NumTargets; i++)
             {
                 GameObject go = GameObject.Instantiate(TargetPrefab);
-                //Target target = go.GetComponent<Target>();
+
+                //target通过自己的Update来在一个随机方向进行直线匀速运动
+                var target = go.GetComponent<Tutorials.Jobs.Step1.Target>();
                 Vector2 dir = Random.insideUnitCircle;
-                //target.Direction = new Vector3(dir.x, 0, dir.y);
+                target.Direction = new Vector3(dir.x, 0, dir.y);
+
                 TargetTransforms[i] = go.transform;
                 go.transform.localPosition = new Vector3(
                     Random.Range(0, Bounds.x), 0, Random.Range(0, Bounds.y));
