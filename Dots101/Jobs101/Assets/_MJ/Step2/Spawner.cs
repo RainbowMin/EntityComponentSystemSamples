@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MJ.Step2
+namespace MJ
 {
     public class Spawner : MonoBehaviour
     {
